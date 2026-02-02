@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Abbraccio d’Amore | Pedido</title>
+
+<!-- Fonte elegante -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+background: #f6f1ec;
+font-family: 'Montserrat', sans-serif;
+display: flex;
+justify-content: center;
+padding: 30px;
+}
+
+.container {
+background: #ffffff;
+max-width: 420px;
+width: 100%;
+padding: 30px;
+border-radius: 14px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.brand {
+text-align: center;
+margin-bottom: 25px;
+}
+
+.brand h1 {
+font-family: 'Playfair Display', serif;
+color: #7b2d2d;
+margin: 10px 0 5px;
+}
+
+.brand p {
+font-size: 13px;
+color: #9a7c52;
+letter-spacing: 1px;
+}
+
+label {
+font-weight: 500;
+margin-top: 15px;
+display: block;
+color: #5a3a2e;
+}
+
+select, input, textarea {
+width: 100%;
+padding: 12px;
+margin-top: 6px;
+border-radius: 8px;
+border: 1px solid #ddd;
+font-family: 'Montserrat', sans-serif;
+}
+
+textarea {
+resize: none;
+}
+
+button {
+margin-top: 25px;
+width: 100%;
+padding: 15px;
+background: #7b2d2d;
+color: #fff;
+font-size: 16px;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+background: #5f2121;
+}
+
+.footer {
+text-align: center;
+margin-top: 20px;
+font-size: 12px;
+color: #999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="brand">
+<!-- Se quiser colocar a logo depois -->
+<!-- <img src="logo.png" width="90"> -->
+<h1>Abbraccio d’Amore</h1>
+<p>MASSA FRESCA ARTESANAL</p>
+</div>
+
+<label>🍝 Tipo de massa</label>
+<select id="massa">
+<option>Talharim</option>
+<option>Fettuccine</option>
+<option>Pappardelle</option>
+<option>Lasanha (folhas)</option>
+</select>
+
+<label>📦 Quantidade</label>
+<input type="text" id="quantidade" placeholder="Ex: 1 pacote (500g)">
+
+<label>📅 Data para retirada</label>
+<input type="date" id="data">
+
+<label>📝 Observações</label>
+<textarea id="obs" rows="3" placeholder="Ex: sem sal, pedido para presente..."></textarea>
+
+<button onclick="enviarPedido()">Fazer pedido pelo WhatsApp 💛</button>
+
+<div class="footer">
+Produção artesanal sob encomenda
+</div>
+
+</div>
+
+<script>
+function enviarPedido() {
+const massa = document.getElementById("massa").value;
+const quantidade = document.getElementById("quantidade").value;
+const data = document.getElementById("data").value;
+const obs = document.getElementById("obs").value;
+
+const mensagem =
+`Olá! Gostaria de fazer um pedido 💛🍝%0A%0A` +
+`🍝 Massa: ${massa}%0A` +
+`📦 Quantidade: ${quantidade}%0A` +
+`📅 Retirada: ${data}%0A` +
+`📝 Observações: ${obs}`;
+
+const telefone = "55SEUNUMEROAQUI"; // Ex: 5511999999999
+const url = `https://wa.me/${telefone}?text=${mensagem}`;
+
+window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
