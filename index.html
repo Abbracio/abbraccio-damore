@@ -101,9 +101,7 @@ color: #999;
 
 <label>🍝 Tipo de massa</label>
 <select id="massa">
-<option>Talharim</option>
-<option>Fettuccine</option>
-<option>Pappardelle</option>
+<option>Tagliarim</option>
 <option>Lasanha (folhas)</option>
 </select>
 
@@ -131,15 +129,23 @@ const quantidade = document.getElementById("quantidade").value;
 const data = document.getElementById("data").value;
 const obs = document.getElementById("obs").value;
 
-const mensagem =
-`Olá! Gostaria de fazer um pedido 💛🍝%0A%0A` +
-`🍝 Massa: ${massa}%0A` +
-`📦 Quantidade: ${quantidade}%0A` +
-`📅 Retirada: ${data}%0A` +
-`📝 Observações: ${obs}`;
+const mensagem = `Olá! Gostaria de fazer um pedido 🍝❤️
 
-const telefone = "55SEUNUMEROAQUI"; // Ex: 5511999999999
-const url = `https://wa.me/${telefone}?text=${mensagem}`;
+🍝 Massa: ${massa}
+📦 Quantidade: ${quantidade}
+📅 Retirada: ${data}
+📝 Observações: ${obs}
+
+Produção artesanal – Abbraccio d’Amore 🤍`;
+
+const telefone = "5511972834499"; // seu número
+const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+window.open(url, "_blank");
+}
+</script>
+}
+</script>
 
 window.open(url, "_blank");
 }
